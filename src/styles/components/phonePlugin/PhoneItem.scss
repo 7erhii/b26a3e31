@@ -1,6 +1,14 @@
 .phone-item {
-    width: 100%;
-    background: rgba(255, 0, 0, 0.229);
-    padding: 1em;
-    border-radius: 8px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.phone-item__line {
+  width: 100%;
+  background: rgba(255, 0, 0, 0.229);
+  padding: 1em;
+  border-radius: 8px;
 }

@@ -1,25 +1,12 @@
 import React from "react";
-import FilterTab from "../filterTab/filterTab";
 import PhoneItem from "../phoneItem/phoneItem";
 
-export default function ContentScreen() {
+export default function ContentScreen({ data, isEditMode }) {
   return (
-    <div>
-      <div className="content-screen">
-        <PhoneItem />
-        <PhoneItem />
-        <PhoneItem />
-        <PhoneItem />
-        <PhoneItem />
-        <PhoneItem />
-        <PhoneItem />
-        <PhoneItem />
-        <PhoneItem />
-        <PhoneItem />
-        <PhoneItem />
-        <PhoneItem />
-        <PhoneItem />
-      </div>
+    <div className="content-screen">
+      {data.map((item) => (
+        <PhoneItem key={item.id} item={item} isEditMode={isEditMode} /> 
+      ))}
     </div>
   );
 }

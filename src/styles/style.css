@@ -224,6 +224,8 @@ a {
   flex-direction: column;
   width: 100%;
   max-width: 25em;
+  height: 34em;
+  transition: width 0.3s, height 0.3s;
   background: #fff;
   border-radius: 18px;
   overflow: hidden;
@@ -278,21 +280,18 @@ a {
 }
 
 .plugin-filter-call {
-  position: absolute;
   display: flex;
   width: 100%;
   background: rgba(120, 117, 122, 0.483);
   justify-content: center;
-  gap: 1em;
 }
 .plugin-filter-call__button {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 0.5em;
   background: rgb(79, 77, 77);
-  padding: 0.2em 0.3em;
   border-radius: 8px;
-  min-width: 4.5em;
 }
 
 .plugin-acton-bar {
@@ -305,33 +304,26 @@ a {
 .content-screen {
   display: flex;
   flex-direction: column;
-  background: rgb(143, 213, 22);
-  min-height: 34em;
-  height: 100%;
+  background: rgb(177, 195, 146);
+  height: 34em;
   padding: 2em;
   gap: 1em;
+  overflow-y: scroll;
 }
 
 .phone-item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.phone-item__line {
   width: 100%;
   background: rgba(255, 0, 0, 0.229);
   padding: 1em;
   border-radius: 8px;
-}
-
-.phone-plugin {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 25em;
-  height: 34em;
-  transition: width 0.3s, height 0.3s;
-  background: #fff;
-  border-radius: 18px;
-  overflow: hidden;
-  overflow-y: scroll;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .cover {
@@ -353,6 +345,14 @@ a {
 .phone-plugin.collapsed {
   width: 6em;
   height: 6em;
+}
+
+.phone-plugin .cover button {
+  display: none;
+}
+
+.phone-plugin.collapsed .cover button {
+  display: flex;
 }
 
 /*# sourceMappingURL=style.css.map */

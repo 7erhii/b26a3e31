@@ -1,20 +1,3 @@
-.phone-plugin {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 25em;
-  height: 34em;
-  transition:
-    width 0.3s,
-    height 0.3s;
-  background: #fff;
-  border-radius: 18px;
-  overflow: hidden;
-  overflow-y: scroll;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
 .cover {
   position: absolute;
   bottom: 0;
@@ -34,4 +17,10 @@
 .phone-plugin.collapsed {
   width: 6em;
   height: 6em;
+}
+.phone-plugin .cover button {
+  display: none;
+}
+.phone-plugin.collapsed .cover button {
+  display: flex;
 }
