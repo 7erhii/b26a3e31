@@ -1,0 +1,12 @@
+$selectionColor: #12495d;
+
+@import "core/fonts.scss";
+@import "core/reset.scss";
+@import "core/base.scss";
+
+.container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}

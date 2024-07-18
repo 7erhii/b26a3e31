@@ -1,0 +1,35 @@
+{
+  "name": "frontend-hiring-challenge",
+  "version": "1.0.0",
+  "description": "Leap test",
+  "main": "index.js",
+  "repository": "",
+  "author": "",
+  "license": "",
+  "scripts": {
+    "sass": "sass src/styles/app.scss:src/styles/style.css",
+    "watch-sass": "sass --watch src/styles:src/styles",
+    "start": "concurrently \"nodemon --watch src/styles --ext scss --exec 'npm run sass'\" \"NODE_OPTIONS=--openssl-legacy-provider webpack-dev-server --mode development --open\"",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider webpack --mode production"
+  },
+  "dependencies": {
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "8.1.0",
+    "concurrently": "^8.2.2",
+    "css-loader": "2.1.*",
+    "html-loader": "0.5.*",
+    "html-webpack-plugin": "3.2.*",
+    "sass": "^1.77.8",
+    "sass-loader": "^14.2.1",
+    "style-loader": "0.23.*",
+    "webpack": "4.29.*",
+    "webpack-cli": "3.2.*",
+    "webpack-dev-server": "3.1.*"
+  }
+}
