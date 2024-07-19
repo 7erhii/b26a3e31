@@ -1,0 +1,18 @@
+// TODO: move to mixins
+@use "sass:math";
+$base-font-size: 16;
+@function em($pixels, $context: $base-font-size) {
+  @return #{math.div($pixels, $context)}em;
+}
+
+$backgroundColor: rgb(177, 195, 146);
+
+.content-screen {
+  display: flex;
+  flex-direction: column;
+  // background: $backgroundColor;
+  height: em(600);
+  padding: 2em;
+  gap: 1em;
+  overflow-y: scroll;
+}

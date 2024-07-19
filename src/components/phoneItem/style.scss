@@ -1,0 +1,58 @@
+.phone-item {
+  display: flex;
+  background: #f2f6fa;
+  border-radius: 36px;
+  color: #151515;
+  &__line {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    // padding: 0.5em 1em;
+  }
+  &__callDetails {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.5em 1em;
+  }
+  &__time {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 0.5em 1em;
+    text-align: end;
+  }
+  &__direction {
+    font-size: 1.4em;
+  }
+  &__direction--inbound {
+    color: blue; /* Цвет для входящих звонков */
+  }
+
+  &__direction--outbound {
+    color: red; /* Цвет для исходящих звонков */
+  }
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1em;
+    text-wrap: nowrap;
+    font-size: 1em;
+    font-weight: 300;
+    color: #151515;
+  }
+  &__time {
+  }
+  &__created {
+    font-size: 1em;
+    font-weight: 300;
+    color: #151515;
+  }
+  &__duration {
+    font-weight: 100;
+    color: rgba(21, 21, 21, 0.8);
+    font-size: 0.8em;
+  }
+}

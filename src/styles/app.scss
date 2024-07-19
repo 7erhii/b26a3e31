@@ -1,4 +1,4 @@
-$selectionColor: #12495d;
+$selectionColor: #F4F4F8;
 
 @import "core/fonts.scss";
 @import "core/reset.scss";
@@ -11,14 +11,3 @@ $selectionColor: #12495d;
   justify-content: center;
   min-height: 100vh;
 }
-
-// PhonePlugin
-@import "components/phonePlugin/PhonePlugin.scss";
-@import "components/phonePlugin/PluginActionBar.scss";
-@import "components/phonePlugin/FilterCall.scss";
-@import "components/phonePlugin/FilterTab.scss";
-@import "components/phonePlugin/ContentScreen.scss";
-@import "components/phonePlugin/PluginActonFooterBar.scss";
-@import "components/phonePlugin/PhoneItem.scss";
-
-@import "components/phonePlugin/CoverButton.scss";

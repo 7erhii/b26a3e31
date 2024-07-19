@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import PhoneItem from "../phoneItem/phoneItem";
 
+// Style
+import "./style.scss";
+
 export default function ContentScreen({ data, isEditMode }) {
   const [activeItem, setActiveItem] = useState(null);
 

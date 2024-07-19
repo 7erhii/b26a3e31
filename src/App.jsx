@@ -1,19 +1,18 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from 'react-dom/client';
 
-import Header from "./Header.jsx";
-import PhonePlugin from "./components/phonePlugin/phonePlugin.js";
+import PhoneCore from "./components/phoneCore/phoneCore.js";
 
-const App = () => {
+export const App = () => {
   return (
     <div className="container">
-      <PhonePlugin />
-      {/* <Header />
-      <div className="container-view">Some activities should be here</div> */}
+      <PhoneCore />
     </div>
   );
 };
 
-ReactDOM.render(<App />, document.getElementById("app"));
+const container = document.getElementById('app');
+const root = createRoot(container); // createRoot(container!) if you use TypeScript
+root.render(<App/>);
 
 export default App;

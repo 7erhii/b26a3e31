@@ -1,0 +1,28 @@
+.activities-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  h1 {
+    color: #151515;
+    font-size: 1em;
+    font-weight: 400;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+
+  &__actions {
+    color: #fff;
+  }
+
+  &__archive {
+    background: rgba(102, 51, 153, 0.431);
+    padding: 0.2em 0.4em;
+    border-radius: 8px;
+    font-size: 0.8em;
+    cursor: pointer;
+  }
+}

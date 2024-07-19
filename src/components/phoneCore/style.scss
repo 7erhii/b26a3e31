@@ -1,0 +1,54 @@
+.phone-core {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 25em;
+  // height: 34em;
+  transition:
+    width 0.3s,
+    height 0.3s;
+  background: #fff;
+  border-radius: 54px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  &__head {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    justify-content: space-between;
+    background: #fff;
+    padding: 2em 2em;
+    padding-bottom: 0;
+    color: #151515;
+  }
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: #fff;
+    text-transform: capitalize;
+    padding: 0.5em 0;
+    font-weight: 500;
+    font-size: 1.5em;
+    color: #151515;
+  }
+  &__menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // background: red;
+    height: 100px;
+  }
+
+  &__page {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    height: 34em;
+    overflow-y: scroll;
+    padding: 1em 2em;
+    // height: em(30);
+  }
+}
