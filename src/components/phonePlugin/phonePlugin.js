@@ -12,15 +12,49 @@ export default function PhonePlugin() {
   const [filteredData, setFilteredData] = useState([]);
   const [filter, setFilter] = useState("all");
   const [isEditMode, setIsEditMode] = useState(false);
+  const [missedCount, setMissedCount] = useState(0);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        "https://aircall-backend.onrender.com/activities"
+      );
+      const data = await response.json();
+      setData(data);
+      updateFilteredData(data);
+
+      const missedCalls = data.filter(
+        (item) => item.call_type === "missed" && item.is_archived === false
+      ).length;
+      setMissedCount(missedCalls);
+    } catch (error) {
+      console.error("Failed to fetch data:", error);
+    }
+  };
 
   useEffect(() => {
-    fetch("https://aircall-backend.onrender.com/activities")
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data);
-        setFilteredData(data.filter((item) => !item.is_archived));
-      });
+    fetchData();
   }, []);
+
+  const updateFilteredData = (newData) => {
+    switch (filter) {
+      case "all":
+        setFilteredData(newData.filter((item) => !item.is_archived));
+        break;
+      case "missed":
+        setFilteredData(
+          newData.filter(
+            (item) => item.call_type === "missed" && !item.is_archived
+          )
+        );
+        break;
+      case "archive":
+        setFilteredData(newData.filter((item) => item.is_archived));
+        break;
+      default:
+        setFilteredData(newData.filter((item) => !item.is_archived));
+    }
+  };
 
   const toggleCollapse = () => setIsCollapsed(!isCollapsed);
 
@@ -51,10 +85,16 @@ export default function PhonePlugin() {
         setFilter={setFilter}
         isEditMode={isEditMode}
         setIsEditMode={setIsEditMode}
+        filteredData={filteredData}
+        refreshData={fetchData}
       />
       <ContentScreen data={filteredData} isEditMode={isEditMode} />
       <PluginActionFooterBar />
-      <CoverButton isCollapsed={isCollapsed} toggleCollapse={toggleCollapse} />
+      <CoverButton
+        isCollapsed={isCollapsed}
+        toggleCollapse={toggleCollapse}
+        missedCalls={missedCount}
+      />
     </div>
   );
 }

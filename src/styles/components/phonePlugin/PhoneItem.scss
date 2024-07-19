@@ -1,14 +1,27 @@
 .phone-item {
   display: flex;
-  width: 100%;
   align-items: center;
-  justify-content: center;
-  gap: 0.5em;
+  width: 100%;
+  cursor: pointer;
 }
 
 .phone-item__line {
+  display: flex;
   width: 100%;
-  background: rgba(255, 0, 0, 0.229);
+  justify-content: space-between;
+  align-items: center;
   padding: 1em;
+  background-color: rgba(255, 0, 0, 0.229);
   border-radius: 8px;
+}
+
+.hidden {
+  display: none;
+}
+
+.phone-item__details {
+  transition: all 3s ease-in-out; 
+  background-color: rgba(0, 255, 0, 0.1); 
+  padding: 0.5em;
+  margin-top: 0.5em; 
 }

@@ -1,15 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { BiPlus } from "react-icons/bi";
 import { HiPhoneMissedCall } from "react-icons/hi";
 import { RiArchive2Fill } from "react-icons/ri";
 
-export default function FilterCall({ setFilter, isEditMode, setIsEditMode }) {
+export default function FilterCall({
+  setFilter,
+  isEditMode,
+  setIsEditMode,
+  filteredData,
+  refreshData,
+}) {
   const [isArchiveTab, setIsArchiveTab] = useState(false);
 
-  const handleArchiveAll = () => {
-    console.log(isArchiveTab ? "Unarchiving all items" : "Archiving all items");
+  const handleArchiveAll = async () => {
+    if (isArchiveTab) {
+      await fetch("https://aircall-backend.onrender.com/reset", {
+        method: "PATCH",
+      });
+      console.log("All items unarchived");
+    } else {
+      const archivePromises = filteredData.map((item) =>
+        fetch(`https://aircall-backend.onrender.com/activities/${item.id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ is_archived: true }),
+        })
+      );
+      await Promise.all(archivePromises);
+      console.log("All items archived");
+    }
+
+    refreshData();
+    setIsEditMode(false);
   };
+
+  
 
   const handleArchiveItem = () => {
     console.log(isArchiveTab ? "Unarchiving item" : "Archiving item");
@@ -48,8 +76,10 @@ export default function FilterCall({ setFilter, isEditMode, setIsEditMode }) {
         archive
       </button>
       <button
-        onClick={() => setIsEditMode(true)}
-        className="plugin-filter-call__button"
+        onClick={() => {
+          if (filteredData.length > 0) setIsEditMode(true);
+        }}
+        className={`plugin-filter-call__button ${!filteredData.length ? "inactive" : ""}`}
       >
         <RiArchive2Fill />
         Edit
