@@ -79,21 +79,21 @@ export default function PhoneItem({ item, onRemove }) {
           <div className="phone-item__contacts">
             <div
               className="phone-item__from"
-              onClick={(e) => {
+
+            >
+              From: {item.from} <BsCopy className="copy-icon"               onClick={(e) => {
                 e.stopPropagation();
                 copyToClipboard(item.from);
-              }}
-            >
-              From: {item.from} <BsCopy className="copy-icon" />
+              }}/>
             </div>
             <div
               className="phone-item__to"
-              onClick={(e) => {
+
+            >
+              To: {item.to} <BsCopy className="copy-icon"               onClick={(e) => {
                 e.stopPropagation();
                 copyToClipboard(item.to);
-              }}
-            >
-              To: {item.to} <BsCopy className="copy-icon" />
+              }} />
             </div>
           </div>
         </div>

@@ -70,11 +70,19 @@
     font-size: 1em;
     font-weight: 300;
     color: #151515;
+    svg {
+      width: 16px;
+      height: 16px;
+    }
   }
   &__to {
     font-size: 0.8em;
     font-weight: 300;
     color: #151515;
+    svg {
+      width: 14px;
+      height: 14px;
+    }
   }
   &__copy {
     font-size: 0.7em;
