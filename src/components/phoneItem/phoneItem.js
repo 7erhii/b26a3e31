@@ -73,7 +73,7 @@ export default function PhoneItem({ item, onRemove }) {
 
   return (
     <div className={`phone-item ${isMissed ? "missed" : ""}`}>
-      <div className={`phone-item__line ${isSlid ? "slide" : ""} ${isMissed ? "missed" : ""}`} onClick={handleClick}>
+      <button className={`phone-item__line ${isSlid ? "slide" : ""} ${isMissed ? "missed" : ""}`} onClick={handleClick}>
         <div className="phone-item__callDetails">
           <div className={`phone-item__direction ${directionClass}`}>{directionIcon}</div>
           <div className="phone-item__contacts">
@@ -102,10 +102,10 @@ export default function PhoneItem({ item, onRemove }) {
           <div className="phone-item__duration">{formatDuration(item.duration)}</div>
         </div>
         {isMissed && <div className="phone-item__missed">mis.</div>}
-      </div>
-      <div className="phone-item__archive" onClick={() => handleRemove(item)}>
+      </button>
+      <button className="phone-item__archive" onClick={() => handleRemove(item)}>
         <LuArchiveRestore />
-      </div>
+      </button>
     </div>
   );
 }
