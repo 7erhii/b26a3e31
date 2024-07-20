@@ -1,14 +1,22 @@
 .phone-item {
+  position: relative;
   display: flex;
-  background: #f2f6fa;
   border-radius: 36px;
   color: #151515;
+  overflow: hidden;
   &__line {
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    // padding: 0.5em 1em;
+    padding: 0.4em 0.2em;
+    z-index: 10;
+    background: #f2f6fa;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out; /* Добавление плавного перехода */
+  }
+  &__line.slide {
+    transform: translateX(-3em); /* Сдвиг влево при добавлении класса */
   }
   &__callDetails {
     display: flex;
@@ -43,8 +51,6 @@
     font-weight: 300;
     color: #151515;
   }
-  &__time {
-  }
   &__created {
     font-size: 1em;
     font-weight: 300;
@@ -54,5 +60,24 @@
     font-weight: 100;
     color: rgba(21, 21, 21, 0.8);
     font-size: 0.8em;
+  }
+  &__archive {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f2f6fa;
+    width: 3.5em;
+    top: 0;
+    right: 0;
+    background: rgb(244, 97, 71);
+    height: 100%;
+    border-radius: 0 50px 50px 0;
+    margin: 0.1px;
+    span {
+      position: absolute;
+      top: 50%, -50%;
+      right: 0;
+    }
   }
 }

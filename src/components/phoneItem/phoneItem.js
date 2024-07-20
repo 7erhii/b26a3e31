@@ -1,12 +1,13 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { format, parseISO, isToday, isYesterday } from "date-fns";
 
 // Style
 import style from "./style.scss";
 import { PiPhoneIncomingLight, PiPhoneOutgoingLight } from "react-icons/pi";
 
-export default function PhoneItem({ item, isEditMode, isActive, toggleItem }) {
-  const detailsRef = useRef(null);
+export default function PhoneItem({ item, onRemove }) {
+  const [isSlid, setIsSlid] = useState(false);
+  const slideTimeout = useRef(null);
 
   const isIncoming = item.direction === "inbound";
   const directionIcon = isIncoming ? <PiPhoneIncomingLight /> : <PiPhoneOutgoingLight />;
@@ -15,11 +16,11 @@ export default function PhoneItem({ item, isEditMode, isActive, toggleItem }) {
   const formatDate = (dateStr) => {
     const date = parseISO(dateStr);
     if (isToday(date)) {
-      return format(date, "HH:mm"); // Время, если дата совпадает с текущей
+      return format(date, "HH:mm");
     } else if (isYesterday(date)) {
-      return "yesterday"; // Слово "yesterday", если дата - вчерашняя
+      return "yesterday";
     } else {
-      return format(date, "dd MMM"); // Дата в формате "12 Jun", если более ранняя
+      return format(date, "dd MMM");
     }
   };
 
@@ -35,14 +36,28 @@ export default function PhoneItem({ item, isEditMode, isActive, toggleItem }) {
       return `${hours}h ${minutes.toString().padStart(2, "0")}min`;
     } else if (minutes > 0) {
       return `${minutes}min ${remainingSeconds.toString().padStart(2, "0")}s`;
-    } else {
-      return `${remainingSeconds}s`;
     }
+  };
+
+  const handleClick = () => {
+    if (isSlid) {
+      clearTimeout(slideTimeout.current);
+      setIsSlid(false);
+    } else {
+      setIsSlid(true);
+      slideTimeout.current = setTimeout(() => {
+        setIsSlid(false);
+      }, 1600);
+    }
+  };
+
+  const handleRemove = async (item) => {
+    onRemove(item);
   };
 
   return (
     <div className="phone-item">
-      <div className="phone-item__line">
+      <div className={`phone-item__line ${isSlid ? "slide" : ""}`} onClick={handleClick}>
         <div className="phone-item__callDetails">
           <div className={`phone-item__direction ${directionClass}`}>{directionIcon}</div>
 
@@ -55,6 +70,9 @@ export default function PhoneItem({ item, isEditMode, isActive, toggleItem }) {
           <div className="phone-item__created">{formatDate(item.created_at)}</div>
           <div className="phone-item__duration">{formatDuration(item.duration)}</div>
         </div>
+      </div>
+      <div className="phone-item__archive" onClick={() => handleRemove(item)}>
+        X
       </div>
     </div>
   );

@@ -8,11 +8,11 @@ import PhoneItem from "../phoneItem/phoneItem";
 
 // Hooks
 import { useMissedCallFetch } from "../../hooks/use-missed-fetch";
-import { useMissedCallToArchive } from "../../hooks/use-missed-to-archive";
+import { usePhoneCallArchive } from "../../hooks/use-phonecall-archive";
 
 export default function MissedList() {
   const { fetchMissedCallData, missedCallsData, isLoadingMissedCallData } = useMissedCallFetch();
-  const { submitAllMissedCallsToArchive } = useMissedCallToArchive();
+  const { submitAllPhoneCallToArchive, submitOnePhoneCallToArchive } = usePhoneCallArchive();
 
   const handleMissedToArchive = async () => {
     if (missedCallsData.length === 0) {
@@ -20,11 +20,20 @@ export default function MissedList() {
     }
 
     try {
-      await submitAllMissedCallsToArchive(missedCallsData);
+      await submitAllPhoneCallToArchive(missedCallsData);
       await fetchMissedCallData();
       console.log("All missed calls have been archived");
     } catch (error) {
       console.error("Failed: ", error);
+    }
+  };
+
+  const handleToArchive = async (item) => {
+    try {
+      await submitOnePhoneCallToArchive(item);
+      await fetchMissedCallData();
+    } catch (error) {
+      console.log("Handler to archive failed: ", error);
     }
   };
 
@@ -40,7 +49,7 @@ export default function MissedList() {
 
       <div className="missed-list__content">
         {missedCallsData.map((item, idx) => {
-          return <PhoneItem key={idx} item={item} />;
+          return <PhoneItem key={idx} item={item} onRemove={handleToArchive} />;
         })}
       </div>
     </div>

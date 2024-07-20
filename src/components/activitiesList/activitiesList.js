@@ -9,11 +9,11 @@ import PhoneItem from "../phoneItem/phoneItem";
 
 // Hooks
 import { useActivitiesFetch } from "../../hooks/use-activities-fetch";
-import { useActivitiesToArchive } from "../../hooks/use-activities-to-archive";
+import { usePhoneCallArchive } from "../../hooks/use-phonecall-archive";
 
 export default function ActivitiesList() {
   const { fetchActivitiesData, activitiesData, isLoadingActivitiesData } = useActivitiesFetch();
-  const { submitAllActivitiesToArchive } = useActivitiesToArchive();
+  const { submitAllPhoneCallToArchive, submitOnePhoneCallToArchive } = usePhoneCallArchive();
 
   const handleAllToArchive = async () => {
     if (activitiesData.length === 0) {
@@ -21,11 +21,20 @@ export default function ActivitiesList() {
     }
 
     try {
-      await submitAllActivitiesToArchive(activitiesData);
+      await submitAllPhoneCallToArchive(activitiesData);
       await fetchActivitiesData();
       console.log("All activities have been archived");
     } catch (error) {
       console.error("Failed: ", error);
+    }
+  };
+
+  const handleToArchive = async (item) => {
+    try {
+      await submitOnePhoneCallToArchive(item);
+      await fetchActivitiesData();
+    } catch (error) {
+      console.log("Handler to archive failed: ", error);
     }
   };
 
@@ -41,7 +50,7 @@ export default function ActivitiesList() {
 
       <div className="activities-list__content">
         {activitiesData.map((item, idx) => {
-          return <PhoneItem key={idx} item={item} />;
+          return <PhoneItem key={item.id} item={item} onRemove={handleToArchive} />;
         })}
       </div>
     </div>

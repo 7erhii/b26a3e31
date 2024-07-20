@@ -9,11 +9,10 @@ import PhoneItem from "../phoneItem/phoneItem";
 
 // Hooks
 import { useArchivedFetch } from "../../hooks/use-archived-fetch";
-import { useMissedFromArcive } from "../../hooks/use-missed-from-archive";
-
+import { usePhoneCallArchive } from "../../hooks/use-phonecall-archive";
 export default function ArchivedList() {
   const { fetchArchivedData, archivedData, isLoadingArchivedsData } = useArchivedFetch();
-  const { submitAllCallsFromArchive } = useMissedFromArcive();
+  const { submitAllPhoneCallFromArchive, submitOnePhoneCallFromArchive } = usePhoneCallArchive();
 
   const handleUnarchiveAll = async () => {
     if (archivedData.length === 0) {
@@ -21,7 +20,17 @@ export default function ArchivedList() {
     }
 
     try {
-      await submitAllCallsFromArchive(archivedData);
+      await submitAllPhoneCallFromArchive(archivedData);
+      await fetchArchivedData();
+      console.log("All activities have been archived");
+    } catch (error) {
+      console.error("Failed: ", error);
+    }
+  };
+
+  const handleRemoveFromArchive = async (item) => {
+    try {
+      await submitOnePhoneCallFromArchive(item);
       await fetchArchivedData();
       console.log("All activities have been archived");
     } catch (error) {
@@ -39,7 +48,7 @@ export default function ArchivedList() {
       </div>
       <div className="activities-list__content">
         {archivedData.map((item, idx) => {
-          return <PhoneItem key={idx} item={item} />;
+          return <PhoneItem key={idx} item={item} onRemove={handleRemoveFromArchive} />;
         })}
       </div>
     </div>
