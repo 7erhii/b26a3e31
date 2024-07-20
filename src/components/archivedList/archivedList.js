@@ -39,14 +39,14 @@ export default function ArchivedList() {
   };
 
   return (
-    <div className={"activities-list"}>
+    <div className={"archived-list"}>
       <h1>ArchivedList List</h1>
-      <div className="activities-list__actions">
-        <button type={"button"} onClick={handleUnarchiveAll}>
+      <div className="archived-list__actions">
+        <button className="archived-list__archive" type={"button"} onClick={handleUnarchiveAll}>
           Unarchive All
         </button>
       </div>
-      <div className="activities-list__content">
+      <div className="archived-list__content">
         {archivedData.map((item, idx) => {
           return <PhoneItem key={idx} item={item} onRemove={handleRemoveFromArchive} />;
         })}

@@ -42,7 +42,7 @@ export default function MissedList() {
       <h1>Missed List</h1>
 
       <div className="missed-list__actions">
-        <button type={"button"} onClick={handleMissedToArchive}>
+        <button className="missed-list__archive" type={"button"} onClick={handleMissedToArchive}>
           Archive missed
         </button>
       </div>

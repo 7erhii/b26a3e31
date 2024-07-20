@@ -38,7 +38,7 @@ export default function PhoneCore() {
         {pageType === "archived" && <h1>Archived</h1>}
       </div>
 
-      <Menu onSelectMenu={handleSelectMenu} />
+      <Menu onSelectMenu={handleSelectMenu} pageType={pageType} />
 
       <div className={"phone-core__page"}>
         {pageType === "activities" && <ActivitiesList />}

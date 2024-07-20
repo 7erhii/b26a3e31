@@ -1,15 +1,36 @@
-// .menu {
-//   display: flex;
-//   width: 100%;
-//   align-items: center;
-//   justify-content: center;
-//   &__button {
-//     display: flex;
-//     align-items: center;
-//     padding: 0.1em;
-//     gap: 0.1em;
-//     background: rebeccapurple;
-//     border-radius: 8px;
-//     text-transform: capitalize;
-//   }
-// }
+.archived-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  h1 {
+    color: #151515;
+    font-size: 1em;
+    font-weight: 400;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+
+  &__actions {
+    color: #fff;
+  }
+
+  &__archive {
+    background-color: rgb(178, 179, 181);
+    padding: 0.2em 0.4em;
+    border-radius: 8px;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition:
+      background-color 0.24s ease-in-out,
+      transform 0.24s ease-in-out;
+    &:hover {
+        background-color: rgb(137, 137, 137);
+        transform: scale(1.01);
+    }
+  }
+}

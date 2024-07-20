@@ -1,6 +1,9 @@
 import React, { useRef, useState } from "react";
 import { format, parseISO, isToday, isYesterday } from "date-fns";
 
+// Icons
+import { LuArchiveRestore } from "react-icons/lu";
+
 // Style
 import style from "./style.scss";
 import { PiPhoneIncomingLight, PiPhoneOutgoingLight } from "react-icons/pi";
@@ -47,7 +50,7 @@ export default function PhoneItem({ item, onRemove }) {
       setIsSlid(true);
       slideTimeout.current = setTimeout(() => {
         setIsSlid(false);
-      }, 1600);
+      }, 1900);
     }
   };
 
@@ -72,7 +75,7 @@ export default function PhoneItem({ item, onRemove }) {
         </div>
       </div>
       <div className="phone-item__archive" onClick={() => handleRemove(item)}>
-        X
+        <LuArchiveRestore />
       </div>
     </div>
   );

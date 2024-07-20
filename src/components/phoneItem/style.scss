@@ -1,7 +1,7 @@
 .phone-item {
   position: relative;
   display: flex;
-  border-radius: 36px;
+  border-radius: 18px;
   color: #151515;
   overflow: hidden;
   &__line {
@@ -11,12 +11,17 @@
     justify-content: space-between;
     padding: 0.4em 0.2em;
     z-index: 10;
-    background: #f2f6fa;
+    background-color: #f2f6fa;
     cursor: pointer;
-    transition: transform 0.3s ease-in-out; /* Добавление плавного перехода */
+    transition:
+      background-color 0.24s ease-in-out,
+      transform 0.3s ease-in-out;
+    &:hover {
+      background-color: #e9f0f7;
+    }
   }
   &__line.slide {
-    transform: translateX(-3em); /* Сдвиг влево при добавлении класса */
+    transform: translateX(-3em);
   }
   &__callDetails {
     display: flex;
@@ -33,15 +38,16 @@
     text-align: end;
   }
   &__direction {
-    font-size: 1.4em;
+    font-size: 1.7em;
   }
   &__direction--inbound {
-    color: blue; /* Цвет для входящих звонков */
+    color: #c65353;
   }
 
   &__direction--outbound {
-    color: red; /* Цвет для исходящих звонков */
+    color: #3178c6;
   }
+
   &__contacts {
     display: flex;
     flex-direction: column;
@@ -70,14 +76,15 @@
     width: 3.5em;
     top: 0;
     right: 0;
-    background: rgb(244, 97, 71);
+    background-color: #ff8d8d;
     height: 100%;
     border-radius: 0 50px 50px 0;
     margin: 0.1px;
-    span {
-      position: absolute;
-      top: 50%, -50%;
-      right: 0;
+    cursor: pointer;
+    transition: background-color 0.24s ease-in-out;
+    &:hover {
+      background-color: #ff6b6b;
+      color: #f5e9e4;
     }
   }
 }
