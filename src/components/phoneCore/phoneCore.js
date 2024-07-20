@@ -29,7 +29,7 @@ export default function PhoneCore() {
   return (
     <div className={`phone-core ${isCollapsed ? "collapsed" : ""}`}>
       <div className="phone-core__head">
-        <ActionBar toggleCollapse={toggleCollapse} />
+      <ActionBar toggleCollapse={toggleCollapse} isCollapsed={isCollapsed} />
       </div>
 
       <div className="phone-core__title">
@@ -48,11 +48,7 @@ export default function PhoneCore() {
 
       <ActionFooterBar />
 
-      {/*<CoverButton*/}
-      {/*  isCollapsed={isCollapsed}*/}
-      {/*  toggleCollapse={toggleCollapse}*/}
-      {/*  missedCalls={missedCount}*/}
-      {/*/>*/}
+      <CoverButton isCollapsed={isCollapsed} toggleCollapse={toggleCollapse} />
     </div>
   );
 }

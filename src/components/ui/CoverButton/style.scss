@@ -14,13 +14,3 @@
   height: 6em;
 }
 
-.phone-plugin.collapsed {
-  width: 6em;
-  height: 6em;
-}
-.phone-plugin .cover button {
-  display: none;
-}
-.phone-plugin.collapsed .cover button {
-  display: flex;
-}

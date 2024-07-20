@@ -5,14 +5,13 @@ import React from "react";
 import { FiPhoneCall } from "react-icons/fi";
 
 export default function CoverButton(props) {
-  const { isCollapsed, toggleCollapse, missedCalls } = props;
+  const { isCollapsed, toggleCollapse } = props;
 
   return (
     <div className={`cover ${isCollapsed ? "slide-up" : ""}`} onClick={toggleCollapse}>
       <button>
         <FiPhoneCall />
       </button>
-      <div>{missedCalls}</div>
     </div>
   );
 }

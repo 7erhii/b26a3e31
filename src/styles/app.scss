@@ -1,4 +1,5 @@
-$selectionColor: #F4F4F8;
+$selectionColor: #f4f4f8;
+
 
 @import "core/fonts.scss";
 @import "core/reset.scss";
@@ -10,4 +11,5 @@ $selectionColor: #F4F4F8;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  cursor: default;
 }

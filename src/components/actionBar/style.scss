@@ -1,0 +1,31 @@
+.action-bar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  &__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: rgb(255, 255, 255);
+    padding: 0.2em;
+    background: #ff8d8d;
+    border-radius: 50px;
+    transition:
+      background 0.24s ease-in-out,
+      box-shadow 0.24s ease-in-out;
+    cursor: pointer;
+    &:hover {
+      background: #ff6b6b;
+      box-shadow: 0px 0px 8px rgba(92, 92, 92, 0.2);
+    }
+  }
+  &__que {
+    padding: 0.2em 0.4em;
+    border-radius: 8px;
+    font-size: 1em;
+    color: rgba(21, 21, 21, 0.3);
+    cursor: pointer;
+  }
+}
