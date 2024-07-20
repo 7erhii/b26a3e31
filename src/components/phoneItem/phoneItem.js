@@ -4,10 +4,10 @@ import { format, parseISO, isToday, isYesterday } from "date-fns";
 // Icons
 import { LuArchiveRestore } from "react-icons/lu";
 import { BsCopy } from "react-icons/bs";
+import { PiPhoneIncomingLight, PiPhoneOutgoingLight } from "react-icons/pi";
 
 // Style
 import style from "./style.scss";
-import { PiPhoneIncomingLight, PiPhoneOutgoingLight } from "react-icons/pi";
 
 export default function PhoneItem({ item, onRemove }) {
   const [isSlid, setIsSlid] = useState(false);
@@ -16,6 +16,7 @@ export default function PhoneItem({ item, onRemove }) {
   const isIncoming = item.direction === "inbound";
   const directionIcon = isIncoming ? <PiPhoneIncomingLight /> : <PiPhoneOutgoingLight />;
   const directionClass = isIncoming ? "phone-item__direction--inbound" : "phone-item__direction--outbound";
+  const isMissed = item.call_type === "missed";  // Проверка на пропущенный звонок
 
   const formatDate = (dateStr) => {
     const date = parseISO(dateStr);
@@ -72,7 +73,7 @@ export default function PhoneItem({ item, onRemove }) {
 
   return (
     <div className="phone-item">
-      <div className={`phone-item__line ${isSlid ? "slide" : ""}`} onClick={handleClick}>
+      <div className={`phone-item__line ${isSlid ? "slide" : ""} ${isMissed ? "missed" : ""}`} onClick={handleClick}>
         <div className="phone-item__callDetails">
           <div className={`phone-item__direction ${directionClass}`}>{directionIcon}</div>
           <div className="phone-item__contacts">
@@ -100,7 +101,7 @@ export default function PhoneItem({ item, onRemove }) {
           <div className="phone-item__created">{formatDate(item.created_at)}</div>
           <div className="phone-item__duration">{formatDuration(item.duration)}</div>
         </div>
-        <div>{item.call_type === "missed" && <div className="phone-item__missed">mis.</div>}</div>
+        {isMissed && <div className="phone-item__missed">mis.</div>}
       </div>
       <div className="phone-item__archive" onClick={() => handleRemove(item)}>
         <LuArchiveRestore />

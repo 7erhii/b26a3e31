@@ -11,7 +11,9 @@
     justify-content: space-between;
     padding: 0.4em 0.2em;
     z-index: 10;
-    background-color: #f2f6fa;
+    background-color: #fdfeff;
+    border: 1px solid #e6e6e6;
+
     cursor: pointer;
     border-radius: 18px;
 
@@ -22,9 +24,13 @@
       background-color: #e9f0f7;
     }
   }
+  &__line.missed {
+    border: 1px solid rgba(255, 96, 96, 0.5);
+  }
   &__line.slide {
     transform: translateX(-3em);
   }
+
   &__callDetails {
     display: flex;
     align-items: center;
@@ -42,13 +48,12 @@
   &__direction {
     position: relative;
     font-size: 1.7em;
-  }
-  &__direction--inbound {
-    color: #c65353;
-  }
-
-  &__direction--outbound {
-    color: #3178c6;
+    &--outbound {
+      color: rgba(83, 159, 241, 0.8);
+    }
+    &--inbound {
+      color: rgba(255, 96, 96, 0.8);
+    }
   }
 
   &__contacts {
@@ -108,7 +113,7 @@
     right: 3px;
     font-size: 0.8rem;
     font-weight: 100;
-    background: red;
+    background: rgb(255, 96, 96);
     padding: 0.1em 0.2em;
     border-radius: 16px;
     color: #fff;
