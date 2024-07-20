@@ -10,6 +10,7 @@ import PhoneItem from "../phoneItem/phoneItem";
 // Hooks
 import { useActivitiesFetch } from "../../hooks/use-activities-fetch";
 import { usePhoneCallArchive } from "../../hooks/use-phonecall-archive";
+import PreloaderItem from "../preloaderItem/preloaderItem";
 
 export default function ActivitiesList() {
   const { fetchActivitiesData, activitiesData, isLoadingActivitiesData } = useActivitiesFetch();
@@ -49,6 +50,7 @@ export default function ActivitiesList() {
       </div>
 
       <div className="activities-list__content">
+        {isLoadingActivitiesData && <PreloaderItem />}
         {activitiesData.map((item, idx) => {
           return <PhoneItem key={item.id} item={item} onRemove={handleToArchive} />;
         })}
