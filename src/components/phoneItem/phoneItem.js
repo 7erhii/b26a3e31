@@ -16,7 +16,7 @@ export default function PhoneItem({ item, onRemove }) {
   const isIncoming = item.direction === "inbound";
   const directionIcon = isIncoming ? <PiPhoneIncomingLight /> : <PiPhoneOutgoingLight />;
   const directionClass = isIncoming ? "phone-item__direction--inbound" : "phone-item__direction--outbound";
-  const isMissed = item.call_type === "missed"; // Проверка на пропущенный звонок
+  const isMissed = item.call_type === "missed";
 
   const formatDate = (dateStr) => {
     const date = parseISO(dateStr);
@@ -72,7 +72,7 @@ export default function PhoneItem({ item, onRemove }) {
   };
 
   return (
-    <div className="phone-item">
+    <div className={`phone-item ${isMissed ? "missed" : ""}`}>
       <div className={`phone-item__line ${isSlid ? "slide" : ""} ${isMissed ? "missed" : ""}`} onClick={handleClick}>
         <div className="phone-item__callDetails">
           <div className={`phone-item__direction ${directionClass}`}>{directionIcon}</div>

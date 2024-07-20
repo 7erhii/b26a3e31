@@ -4,6 +4,11 @@
   border-radius: 18px;
   color: #151515;
   overflow: hidden;
+  border: 1px solid #e6e6e6;
+
+  &.missed {
+    border: 1px solid rgba(255, 96, 96, 0.5);
+  }
   &__line {
     display: flex;
     width: 100%;
@@ -12,7 +17,6 @@
     padding: 0.4em 0.2em;
     z-index: 10;
     background-color: #fdfeff;
-    border: 1px solid #e6e6e6;
 
     cursor: pointer;
     border-radius: 18px;
@@ -25,7 +29,7 @@
     }
   }
   &__line.missed {
-    border: 1px solid rgba(255, 96, 96, 0.5);
+    // border: 1px solid rgba(255, 96, 96, 0.5);
   }
   &__line.slide {
     transform: translateX(-3em);
@@ -94,12 +98,12 @@
     align-items: center;
     justify-content: center;
     color: #f2f6fa;
-    width: 3.5em;
+    width: 4em;
     top: 0;
     right: 0;
     background-color: #ff8d8d;
     height: 100%;
-    border-radius: 0 50px 50px 0;
+    border-radius: 0 18px 18px 0;
     margin: 0.1px;
     cursor: pointer;
     transition: background-color 0.24s ease-in-out;

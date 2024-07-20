@@ -29,8 +29,6 @@
     transition: background-color 0.24s ease-in-out,transform 0.24s ease-in-out ;
     &:hover {
       background-color: rgb(245, 156, 140);
-    transform: scale(1.01);
-
     }
   }
 }
