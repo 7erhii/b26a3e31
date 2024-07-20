@@ -16,7 +16,7 @@ export default function PhoneItem({ item, onRemove }) {
   const isIncoming = item.direction === "inbound";
   const directionIcon = isIncoming ? <PiPhoneIncomingLight /> : <PiPhoneOutgoingLight />;
   const directionClass = isIncoming ? "phone-item__direction--inbound" : "phone-item__direction--outbound";
-  const isMissed = item.call_type === "missed";  // Проверка на пропущенный звонок
+  const isMissed = item.call_type === "missed"; // Проверка на пропущенный звонок
 
   const formatDate = (dateStr) => {
     const date = parseISO(dateStr);

@@ -7,17 +7,16 @@ import style from "./style.scss";
 // Components
 import ActionBar from "../actionBar/actionBar";
 import Menu from "../menu/menu";
-
 import ActivitiesList from "../activitiesList/activitiesList";
 import MissedList from "../missedList/missedList";
 import ArchivedList from "../archivedList/archivedList";
-
 import ContentScreen from "../contentScreen/contentScreen";
-import ActionFooterBar from "../actionFooterBar/ActionFooterBar";
+import FooterBar from "../footerBar/footerBar";
 import CoverButton from "../ui/CoverButton/coverButton";
 
+
 export default function PhoneCore() {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const [pageType, setPageType] = useState("activities");
 
   const toggleCollapse = () => setIsCollapsed(!isCollapsed);
@@ -29,7 +28,7 @@ export default function PhoneCore() {
   return (
     <div className={`phone-core ${isCollapsed ? "collapsed" : ""}`}>
       <div className="phone-core__head">
-      <ActionBar toggleCollapse={toggleCollapse} isCollapsed={isCollapsed} />
+        <ActionBar toggleCollapse={toggleCollapse} isCollapsed={isCollapsed} />
       </div>
 
       <div className="phone-core__title">
@@ -45,8 +44,7 @@ export default function PhoneCore() {
         {pageType === "missed" && <MissedList />}
         {pageType === "archived" && <ArchivedList />}
       </div>
-
-      <ActionFooterBar />
+      {/* <FooterBar /> */}
 
       <CoverButton isCollapsed={isCollapsed} toggleCollapse={toggleCollapse} />
     </div>

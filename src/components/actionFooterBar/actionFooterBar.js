@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react'
+import style from "./style.scss"
 
 export default function ActionFooterBar() {
   return (
-    <div>
-      <h1>tab</h1>
+    <div className="action-footer-bar">
+      <div className="action-footer-bar"></div>
     </div>
-  );
+  )
 }
-

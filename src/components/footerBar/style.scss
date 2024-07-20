@@ -1,0 +1,9 @@
+.footer-bar {
+  position: absolute;
+  // display: flex;
+  width: 100%;
+  bottom: 0;
+  background: #ff87872c;
+  z-index: 20;
+  backdrop-filter: blur(6px);
+}

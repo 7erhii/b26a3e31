@@ -8,7 +8,7 @@
   "license": "",
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
-    "build": "NODE_OPTIONS=--openssl-legacy-provider webpack --mode production",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider webpack --mode production --progress",
     "prettier": "prettier --write \"src/**/*.{js,jsx,json,css,scss}\""
   },
   "dependencies": {
