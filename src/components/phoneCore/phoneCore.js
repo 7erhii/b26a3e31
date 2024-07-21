@@ -14,9 +14,8 @@ import ContentScreen from "../contentScreen/contentScreen";
 import FooterBar from "../footerBar/footerBar";
 import CoverButton from "../ui/CoverButton/coverButton";
 
-
 export default function PhoneCore() {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const [pageType, setPageType] = useState("activities");
 
   const toggleCollapse = () => setIsCollapsed(!isCollapsed);
