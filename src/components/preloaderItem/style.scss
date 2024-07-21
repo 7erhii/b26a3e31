@@ -1,7 +1,7 @@
 .preloader-item {
   display: flex;
   width: 100%;
-  background: #f6f6f6a8;
+  // background: #f6f6f6a8;
   padding: 1em 2em;
   border-radius: 16em;
 }
@@ -14,11 +14,11 @@
   height: 11em;
   border-radius: 50%;
   background: #ffffff;
-  background: -moz-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-  background: -webkit-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-  background: -o-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-  background: -ms-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-  background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: -moz-linear-gradient(left, #f6f6f6a8 10%, rgba(255, 255, 255, 0) 42%);
+  background: -webkit-linear-gradient(left, #f6f6f6a8 10%, rgba(255, 255, 255, 0) 42%);
+  background: -o-linear-gradient(left, #f6f6f6a8 10%, rgba(255, 255, 255, 0) 42%);
+  background: -ms-linear-gradient(left, #f6f6f6a8 10%, rgba(255, 255, 255, 0) 42%);
+  background: linear-gradient(to right, #f6f6f6a8 10%, rgba(255, 255, 255, 0) 42%);
   position: relative;
   -webkit-animation: load3 1.4s infinite linear;
   animation: load3 1.4s infinite linear;
@@ -37,7 +37,7 @@
   content: "";
 }
 .loader:after {
-  background: #e1e2e2;
+  background: #f2f6fa;
   width: 40%;
   height: 40%;
   border-radius: 50%;

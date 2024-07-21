@@ -10,6 +10,7 @@ import PhoneItem from "../phoneItem/phoneItem";
 // Hooks
 import { useArchivedFetch } from "../../hooks/use-archived-fetch";
 import { usePhoneCallArchive } from "../../hooks/use-phonecall-archive";
+import PreloaderItem from "../preloaderItem/preloaderItem";
 export default function ArchivedList() {
   const { fetchArchivedData, archivedData, isLoadingArchivedsData } = useArchivedFetch();
   const { submitAllPhoneCallFromArchive, submitOnePhoneCallFromArchive } = usePhoneCallArchive();
@@ -42,11 +43,20 @@ export default function ArchivedList() {
     <div className={"archived-list"}>
       <h1>ArchivedList List</h1>
       <div className="archived-list__actions">
-        <button className="archived-list__archive" type={"button"} onClick={handleUnarchiveAll}>
-          Unarchive All
-        </button>
+        {!isLoadingArchivedsData &&
+          (archivedData.length === 0 ? (
+            <button className="archived-list__archive" type="button">
+              No Calls Here
+            </button>
+          ) : (
+            <button className="archived-list__archive" type="button" onClick={handleUnarchiveAll}>
+              Unarchive All
+            </button>
+          ))}
       </div>
       <div className="archived-list__content">
+        {isLoadingArchivedsData && <PreloaderItem />}
+
         {archivedData.map((item, idx) => {
           return <PhoneItem key={idx} item={item} onRemove={handleRemoveFromArchive} />;
         })}

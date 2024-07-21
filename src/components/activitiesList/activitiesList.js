@@ -44,9 +44,16 @@ export default function ActivitiesList() {
       <h1>Activities List</h1>
 
       <div className="activities-list__actions">
-        <button className="activities-list__archive" type={"button"} onClick={handleAllToArchive}>
-          All to Archive
-        </button>
+        {!isLoadingActivitiesData &&
+          (activitiesData.length === 0 ? (
+            <button className="activities-list__archive" type={"button"}>
+              No Calls Here
+            </button>
+          ) : (
+            <button className="activities-list__archive" type={"button"} onClick={handleAllToArchive}>
+              All to Archive
+            </button>
+          ))}
       </div>
 
       <div className="activities-list__content">
