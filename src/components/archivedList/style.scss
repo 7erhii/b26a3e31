@@ -19,17 +19,22 @@
     color: #fff;
   }
 
-  &__archive {
-    background-color: rgb(178, 179, 181);
+  &__button {
     padding: 0.2em 0.4em;
     border-radius: 8px;
     font-size: 0.8em;
-    cursor: pointer;
     transition:
       background-color 0.24s ease-in-out,
       transform 0.24s ease-in-out;
-    &:hover {
-        background-color: rgb(137, 137, 137);
+    &--active {
+      background-color: rgb(141, 171, 231);
+      cursor: pointer;
+      &:hover {
+        background-color: rgb(124, 162, 238);
+      }
+    }
+    &--label {
+      background-color: rgb(178, 179, 181);
     }
   }
 }

@@ -45,11 +45,11 @@ export default function MissedList() {
       <div className="missed-list__actions">
         {!isLoadingMissedCallData &&
           (missedCallsData.length === 0 ? (
-            <button className="missed-list__archive" type={"button"}>
+            <button className="missed-list__button  missed-list__button--label" type={"button"}>
               No Calls Here
             </button>
           ) : (
-            <button className="missed-list__archive" type={"button"} onClick={handleMissedToArchive}>
+            <button className="missed-list__button missed-list__button--archive" type={"button"} onClick={handleMissedToArchive}>
               Archive missed
             </button>
           ))}

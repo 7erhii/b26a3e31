@@ -9,7 +9,6 @@
     font-weight: 400;
   }
 
-
   &__content {
     display: flex;
     flex-direction: column;
@@ -20,15 +19,25 @@
     color: #fff;
   }
 
-  &__archive {
-    background-color: rgb(241, 169, 156);
+  &__button {
     padding: 0.2em 0.4em;
     border-radius: 8px;
     font-size: 0.8em;
-    cursor: pointer;
-    transition: background-color 0.24s ease-in-out,transform 0.24s ease-in-out ;
-    &:hover {
-      background-color: rgb(245, 156, 140);
+    transition:
+      background-color 0.24s ease-in-out,
+      transform 0.24s ease-in-out;
+
+    &--archive {
+      background-color: rgb(241, 169, 156);
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgb(245, 156, 140);
+      }
+    }
+
+    &--label {
+      background-color: rgb(186, 180, 179);
     }
   }
 }

@@ -41,15 +41,15 @@ export default function ArchivedList() {
 
   return (
     <div className={"archived-list"}>
-      <h1>ArchivedList List</h1>
+      <h1>Archived List</h1>
       <div className="archived-list__actions">
         {!isLoadingArchivedsData &&
           (archivedData.length === 0 ? (
-            <button className="archived-list__archive" type="button">
+            <button className="archived-list__button archived-list__button--label" type="button">
               No Calls Here
             </button>
           ) : (
-            <button className="archived-list__archive" type="button" onClick={handleUnarchiveAll}>
+            <button className="archived-list__button archived-list__button--active" type="button" onClick={handleUnarchiveAll}>
               Unarchive All
             </button>
           ))}
