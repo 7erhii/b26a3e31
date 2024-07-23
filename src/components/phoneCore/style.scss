@@ -14,8 +14,13 @@
   padding-bottom: 1em;
   margin: 2em;
 
+  max-height: calc(100vh - 20px);
+
   @media (max-width: 768px) {
-    margin: 1em;
+    margin: 0.5em;
+    box-shadow: unset;
+    border-radius: 4px;
+    
   }
 
   &__head,
@@ -60,6 +65,11 @@
     width: 6em;
     height: 6em;
 
+  @media (max-width: 768px) {
+    margin: 0.5em;
+    box-shadow: unset;
+    border-radius: 50px;
+  }
     .phone-core__title,
     .menu,
     .phone-core__page,
@@ -69,6 +79,9 @@
 
     .cover button {
       display: flex;
+    }
+    .action-bar {
+      justify-content: center;
     }
   }
 

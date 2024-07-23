@@ -17,8 +17,16 @@ import CoverButton from "../ui/CoverButton/coverButton";
 export default function PhoneCore() {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [pageType, setPageType] = useState("activities");
+  const [showCopyMessage, setShowCopyMessage] = useState(false);
 
   const toggleCollapse = () => setIsCollapsed(!isCollapsed);
+
+  const showMessage = () => {
+    setShowCopyMessage(true);
+    setTimeout(() => {
+      setShowCopyMessage(false);
+    }, 1000);
+  };
 
   const handleSelectMenu = (pageName) => {
     setPageType(pageName);
@@ -27,7 +35,7 @@ export default function PhoneCore() {
   return (
     <div className={`phone-core ${isCollapsed ? "collapsed" : ""}`}>
       <div className="phone-core__head">
-        <ActionBar toggleCollapse={toggleCollapse} isCollapsed={isCollapsed} />
+        <ActionBar toggleCollapse={toggleCollapse} isCollapsed={isCollapsed} showMessage={showMessage} showCopyMessage={showCopyMessage} />{" "}
       </div>
 
       <div className="phone-core__title">

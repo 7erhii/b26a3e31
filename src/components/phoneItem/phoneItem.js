@@ -77,23 +77,23 @@ export default function PhoneItem({ item, onRemove }) {
         <div className="phone-item__callDetails">
           <div className={`phone-item__direction ${directionClass}`}>{directionIcon}</div>
           <div className="phone-item__contacts">
-            <div
-              className="phone-item__from"
-
-            >
-              From: {item.from} <BsCopy className="copy-icon"               onClick={(e) => {
-                e.stopPropagation();
-                copyToClipboard(item.from);
-              }}/>
+            <div className="phone-item__from">
+              From: {item.from} <BsCopy
+                className="copy-icon"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  copyToClipboard(item.from);
+                }}
+              />
             </div>
-            <div
-              className="phone-item__to"
-
-            >
-              To: {item.to} <BsCopy className="copy-icon"               onClick={(e) => {
-                e.stopPropagation();
-                copyToClipboard(item.to);
-              }} />
+            <div className="phone-item__to">
+              To: {item.to} <BsCopy
+                className="copy-icon"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  copyToClipboard(item.to);
+                }}
+              />
             </div>
           </div>
         </div>
